@@ -18,6 +18,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import cn.psycho.mylibpay.IPayResultListener;
+
 import static cn.psycho.mylibpay.ali.Constants.SDK_PAY_FLAG;
 
 /**
@@ -28,13 +30,13 @@ import static cn.psycho.mylibpay.ali.Constants.SDK_PAY_FLAG;
 public class AliPayUtils {
 
     private Activity activity;
-    private payResultListener payResultListener;
+    private IPayResultListener payResultListener;
 
     public AliPayUtils(Activity activity) {
         this.activity = activity;
     }
 
-    public void setPayResultListener(AliPayUtils.payResultListener payResultListener) {
+    public void setPayResultListener(IPayResultListener payResultListener) {
         this.payResultListener = payResultListener;
     }
 
@@ -67,13 +69,6 @@ public class AliPayUtils {
             }
         }
     };
-
-
-    public interface payResultListener{
-        void onSuccess(String resultInfo);
-        void onFail();
-    }
-
 
     /**
      *
